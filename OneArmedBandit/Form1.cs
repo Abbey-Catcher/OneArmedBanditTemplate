@@ -86,14 +86,25 @@ namespace OneArmedBandit
             // If no show "play again" statement and subtract 1 from score.
             if (reel1 == reel2 && reel2 == reel3)
             {
+                score += 3;
+                outputLabel.Text = "Winner!";
+            }
 
+            else
+            {
+                score -= 1;
+                outputLabel.Text = "Play again.";
             }
 
             // if score has reached 0 display "lose" message and set button enabled property to false
-
+            if (score == 0)
+            {
+                outputLabel.Text = "LOSE :(";
+                spinButton.Enabled = false;
+            }
 
             // display updated score
-
+            scoreDisplay.Text = $"{score}";
         }
     }
 }
